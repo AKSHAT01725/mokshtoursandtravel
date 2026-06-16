@@ -1143,30 +1143,12 @@ import { saveDocument } from './firebase-config.js';
 async function saveBookingToFirebase(data) {
   try {
     await saveDocument('bookings', data);
-    showToast('✓ Booking saved successfully!');
-  } catch(e) {
-    console.error('Firebase save error:', e);
-    // Don't block WhatsApp redirect even if Firebase fails
-  }
-}
-
-async function saveRouteToFirebase(data) {
-  try {
-    await saveDocument('routeInquiries', data);
   } catch(e) {
     console.error('Firebase save error:', e);
   }
 }
 
-async function saveRoundTripToFirebase(data) {
-  try {
-    await saveDocument('roundTripRequests', data);
-  } catch(e) {
-    console.error('Firebase save error:', e);
-  }
-}
-
-// BOOKING FORM SUBMIT
+// Main Booking Form
 document.getElementById('bookingForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('bookBtn');
@@ -1192,39 +1174,30 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   }
 
   btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving…';
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
   document.getElementById('loadingScreen').style.display = 'flex';
 
   const time = hour + ' ' + ampm;
 
-  // Save to Firebase first
-  await saveBookingToFirebase({ name, mobile, pickup, destination: dest, date, time, car, passenger, trip });
-
-  const msg = `━━━━━━━━━━━━━━━━━━━━━━━━━
-🚖 CAB BOOKING REQUEST
-━━━━━━━━━━━━━━━━━━━━━━━━━
-
-▪️ Name        : ${name}
-▪️ Mobile      : ${mobile}
-▪️ Pickup      : ${pickup}
-▪️ Destination : ${dest}
-▪️ Date        : ${date}
-▪️ Time        : ${time}
-▪️ Vehicle     : ${car}
-▪️ Passengers  : ${passenger}
-▪️ Trip Type   : ${trip}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━`;
+  await saveBookingToFirebase({ 
+    name, mobile, pickup, destination: dest, date, time, 
+    car, passenger, trip, received: new Date() 
+  });
 
   setTimeout(() => {
     document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('successMessage').innerHTML = 
+      `Your cab booking has been received successfully.<br><br>Our team will contact you shortly on <strong>${mobile}</strong> to confirm details and availability.`;
+    document.getElementById('successModal').style.display = 'flex';
+    
+    // Reset form
+    document.getElementById('bookingForm').reset();
     btn.disabled = false;
     btn.innerHTML = '<i class="fab fa-whatsapp"></i> Confirm Booking on WhatsApp';
-    window.location.href = 'https://api.whatsapp.com/send?phone=919724429334&text=' + encodeURIComponent(msg);
-  }, 1800);
+  }, 1400);
 });
 
-// ROUTE BOOKING
+// Route Booking
 window.bookRoute = async function(route, sedan, suv) {
   const mobile = prompt('Enter your 10-digit mobile number to book this route:');
   if (!mobile || mobile.length !== 10 || isNaN(mobile)) {
@@ -1232,22 +1205,16 @@ window.bookRoute = async function(route, sedan, suv) {
     return;
   }
 
-  await saveRouteToFirebase({ route, sedan, suv, mobile });
+  await saveDocument('routeInquiries', { 
+    route, sedan, suv, mobile, received: new Date() 
+  });
 
-  const msg = `🚖 ROUTE BOOKING REQUEST
-━━━━━━━━━━━━━━━━━━
-
-📍 Route      : ${route}
-💺 Sedan Price: ₹${sedan}
-🚙 SUV Price  : ₹${suv}
-📱 Customer No: ${mobile}
-
-━━━━━━━━━━━━━━━━━━`;
-
-  window.location.href = 'https://api.whatsapp.com/send?phone=919724429334&text=' + encodeURIComponent(msg);
+  document.getElementById('successMessage').innerHTML = 
+    `Booking request for <strong>${route}</strong> received.<br><br>Our team will contact you shortly on <strong>${mobile}</strong>.`;
+  document.getElementById('successModal').style.display = 'flex';
 };
 
-// ROUND TRIP BOOKING
+// Round Trip Booking
 window.bookRoundTrip = async function(car, rate) {
   const mobile = prompt('Enter your 10-digit mobile number:');
   if (!mobile || mobile.length !== 10 || isNaN(mobile)) {
@@ -1255,25 +1222,25 @@ window.bookRoundTrip = async function(car, rate) {
     return;
   }
 
-  await saveRoundTripToFirebase({ car, rate, mobile });
+  await saveDocument('roundTripRequests', { 
+    car, rate, mobile, received: new Date() 
+  });
 
-  const msg = `🚖 ROUND TRIP BOOKING
-
-🚘 Vehicle : ${car}
-💰 Rate    : ₹${rate}/KM
-📱 Mobile  : ${mobile}
-
-Please confirm availability.`;
-
-  window.location.href = 'https://api.whatsapp.com/send?phone=919724429334&text=' + encodeURIComponent(msg);
+  document.getElementById('successMessage').innerHTML = 
+    `Round trip booking for <strong>${car}</strong> received.<br><br>Our team will contact you shortly on <strong>${mobile}</strong>.`;
+  document.getElementById('successModal').style.display = 'flex';
 };
+
+function closeSuccessModal() {
+  document.getElementById('successModal').style.display = 'none';
+}
 
 function showToast(msg, isError) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.className = 'toast show' + (isError ? ' error' : '');
   clearTimeout(window._toastTimer);
-  window._toastTimer = setTimeout(() => t.className = 'toast', 3500);
+  window._toastTimer = setTimeout(() => t.className = '', 3500);
 }
 window.showToast = showToast;
 </script>
