@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Moksh Tours</title>
+
+<style>
+body{
+    font-family:Arial;
+    margin:0;
+    background:linear-gradient(135deg,#0a1a3a,#1b4d8a);
+    color:white;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:40px 20px 20px;
+}
+
+header h1{
+    color:#ffcc00;
+    font-size:32px;
+}
+
+/* GRID */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.12);
+}
+
+/* TEXT */
+p{
+    line-height:1.7;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin:20px auto;
+    padding:10px 20px;
+    background:#ffb400;
+    color:black;
+    text-decoration:none;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+/* CENTER */
+.center{
+    text-align:center;
+}
+
+/* ICON */
+.icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<a class="btn" href="index.html">← Back Home</a>
+
+<header>
+    <h1>About Moksh Tours & Travel</h1>
+    <p>Safe • Comfortable • Trusted Travel Partner in Gujarat</p>
+</header>
+
+<div class="container">
+
+<!-- INTRO -->
+<div class="card">
+<p>
+Moksh Tours & Travel is one of the most trusted cab service providers in Ahmedabad,
+offering reliable and affordable travel solutions for all your transportation needs.
+</p>
+</div>
+
+<!-- FEATURES -->
+<div class="grid">
+
+<div class="card">
+<div class="icon">🚖</div>
+<h3>Outstation Trips</h3>
+<p>Comfortable long-distance travel across Gujarat & India.</p>
+</div>
+
+<div class="card">
+<div class="icon">✈️</div>
+<h3>Airport Transfer</h3>
+<p>On-time pickup & drop with professional drivers.</p>
+</div>
+
+<div class="card">
+<div class="icon">🏙️</div>
+<h3>Local Travel</h3>
+<p>Easy and affordable city rides in Ahmedabad.</p>
+</div>
+
+<div class="card">
+<div class="icon">👨‍✈️</div>
+<h3>Professional Drivers</h3>
+<p>Experienced, polite and safety-focused drivers.</p>
+</div>
+
+<div class="card">
+<div class="icon">💰</div>
+<h3>Affordable Pricing</h3>
+<p>No hidden charges, 100% transparent pricing.</p>
+</div>
+
+<div class="card">
+<div class="icon">📞</div>
+<h3>24/7 Support</h3>
+<p>Always available customer assistance anytime.</p>
+</div>
+
+</div>
+
+<!-- LONG TEXT -->
+<div class="card" style="margin-top:20px;">
+
+<p>
+<b>Ahmedabad Taxi Service | Outstation Cab Booking | Airport Transfer | One Way Taxi | Round Trip Cab Service in Gujarat</b>
+</p>
+
+<p>
+Moksh Tours & Travel is one of the leading and most trusted cab service providers in Ahmedabad, offering premium, reliable, and affordable travel solutions for individuals, families, tourists, and businesses.
+</p>
+
+<p>
+With a strong commitment to safety, punctuality, and customer satisfaction, we provide comfortable and hassle-free transportation for local travel, outstation journeys, airport transfers, corporate travel, family vacations, wedding events, and customized Gujarat tour packages.
+</p>
+
+<p>
+Our fleet consists of clean, well-maintained, and comfortable vehicles driven by experienced and professional drivers who ensure a smooth, safe, and pleasant travel experience on every journey.
+</p>
+
+<p>
+Whether you need a one-way cab, round-trip taxi, airport pickup & drop service, business travel solution, or a complete Gujarat sightseeing tour, Moksh Tours & Travel is dedicated to providing dependable service at transparent and competitive prices.
+</p>
+
+<p>
+We take pride in being the preferred travel partner for hundreds of satisfied customers across Gujarat by delivering reliable service, on-time pickups, 24×7 booking assistance, and personalized customer support.
+</p>
+
+<p>
+<b>Moksh Tours & Travel – Your Trusted Travel Partner for Safe, Comfortable, and Memorable Journeys.</b>
+</p>
+
+</div>
+
+<!-- CONTACT -->
+<div class="center">
+<button class="btn" onclick="openForm()">
+📞 Contact on WhatsApp
+</button>
+</div>
+
+</div>
+
+<div id="phoneBox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+    
+    <div style="background:white; padding:20px; border-radius:10px; text-align:center; width:280px;">
+        <h3>Enter Your Phone Number</h3>
+        
+        <input id="phoneInput" type="text" placeholder="10-digit number"
+        style="width:100%; padding:10px; margin-top:10px;">
+
+        <br><br>
+
+        <button onclick="sendWhatsApp()" class="btn">Send</button>
+        <br><br>
+        <button onclick="closeBox()" style="background:red;color:white;padding:8px 12px;border:none;border-radius:5px;">
+            Cancel
+        </button>
+    </div>
+
+</div>
+
+
+<script>
+function askPhone(){
+
+    let phone = prompt("Enter your 10-digit mobile number:");
+
+    // validation
+    let pattern = /^[0-9]{10}$/;
+
+    if(!pattern.test(phone)){
+        alert("Please enter valid 10-digit mobile number");
+        return;
+    }
+
+    let message = "Customer Mobile: " + phone + "\n\nHello Moksh Tours & Travel, I want cab service. Please share details.";
+
+    let url = "https://wa.me/91" + phone + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+</script>
+
+
+<div id="bookingBox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+
+  <div style="background:white; padding:20px; border-radius:10px; width:300px; text-align:center;">
+
+    <h3>Book Your Cab</h3>
+
+    <h3 style="color:black; margin-bottom:10px;">Your Trip Booking Form</h3>
+
+    <input id="name" type="text" placeholder="Your Name" style="width:100%;padding:8px;margin:5px 0;">
+    <input id="phone" type="text" placeholder="10-digit Mobile" style="width:100%;padding:8px;margin:5px 0;">
+    <input id="pickup" type="text" placeholder="Pickup Location" style="width:100%;padding:8px;margin:5px 0;">
+    <input id="drop" type="text" placeholder="Destination" style="width:100%;padding:8px;margin:5px 0;">
+    <div style="display:flex; gap:10px;">
+
+  <div style="display:flex; gap:10px;">
+
+  <input id="date" type="date" style="width:50%;padding:8px;margin:5px 0;">
+
+  <select id="time" style="width:50%;padding:8px;margin:5px 0;">
+    <option value="">Select Time</option>
+    
+    <option>1:00 AM</option>
+    <option>2:00 AM</option>
+    <option>3:00 AM</option>
+    <option>4:00 AM</option>
+    <option>5:00 AM</option>
+    <option>6:00 AM</option>
+    <option>7:00 AM</option>
+    <option>8:00 AM</option>
+    <option>9:00 AM</option>
+    <option>10:00 AM</option>
+    <option>11:00 AM</option>
+    <option>12:00 PM</option>
+    <option>1:00 PM</option>
+    <option>2:00 PM</option>
+    <option>3:00 PM</option>
+    <option>4:00 PM</option>
+    <option>5:00 PM</option>
+    <option>6:00 PM</option>
+    <option>7:00 PM</option>
+    <option>8:00 PM</option>
+    <option>9:00 PM</option>
+    <option>10:00 PM</option>
+    <option>11:00 PM</option>
+    
+  </select>
+
+</div>
+
+</div>
+
+    <br><br>
+
+    <button onclick="sendBooking()" class="btn">Send on WhatsApp</button>
+    <br><br>
+    <button onclick="closeForm()" style="background:red;color:white;padding:8px 12px;border:none;border-radius:5px;">
+      Cancel
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+function openForm(){
+    document.getElementById("bookingBox").style.display="flex";
+}
+
+function closeForm(){
+    document.getElementById("bookingBox").style.display="none";
+}
+
+function sendBooking(){
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let pickup = document.getElementById("pickup").value;
+    let drop = document.getElementById("drop").value;
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
+    // validation
+    let pattern = /^[0-9]{10}$/;
+
+        if(!name || !pickup || !drop || !date || !time){
+        alert("Please fill all fields");
+        return;
+    }
+
+    if(!pattern.test(phone)){
+        alert("Enter valid 10-digit mobile number");
+        return;
+    }
+
+    let message =
+`🚖 *New Cab Booking Request*
+
+👤 Name: ${name}
+📱 Mobile: ${phone}
+📍 Pickup: ${pickup}
+🎯 Destination: ${drop}
+📅 Date: ${date}
+⏰ Time: ${time}
+
+Hello Moksh Tours & Travel, please confirm my booking.`;
+
+    let url = "https://wa.me/91" + phone + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+    closeForm();
+}
+</script>
+
+
+</body>
+</html>
