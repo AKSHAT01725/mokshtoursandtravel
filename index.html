@@ -48,9 +48,7 @@
   --transition: 0.28s cubic-bezier(0.4,0,0.2,1);
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior:smooth; }
-
 body {
   font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   background: var(--navy);
@@ -58,8 +56,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-
-/* ── Scrollbar ── */
 ::-webkit-scrollbar { width:6px; }
 ::-webkit-scrollbar-track { background:var(--navy); }
 ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:3px; }
@@ -84,49 +80,20 @@ header.scrolled {
   border-bottom-color: var(--line-2);
 }
 .navbar { display:flex; align-items:center; justify-content:space-between; width:100%; }
-
 .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
 .logo img { width:52px; border-radius:10px; background:white; padding:3px; }
 .logo-text { display:flex; flex-direction:column; }
-.logo-text strong {
-  font-family:'Space Grotesk'; font-size:15px; font-weight:700;
-  color:var(--ice); letter-spacing:.3px; line-height:1.2;
-}
+.logo-text strong { font-family:'Space Grotesk'; font-size:15px; font-weight:700; color:var(--ice); letter-spacing:.3px; line-height:1.2; }
 .logo-text span { font-size:10.5px; color:var(--gold); letter-spacing:1.5px; text-transform:uppercase; }
-
 .menu { display:flex; align-items:center; gap:4px; }
-.menu a {
-  color: rgba(238,242,248,0.75);
-  text-decoration: none;
-  font-size: 13.5px; font-weight:600;
-  padding: 8px 14px; border-radius:8px;
-  transition: var(--transition);
-  letter-spacing:.2px;
-}
+.menu a { color: rgba(238,242,248,0.75); text-decoration:none; font-size:13.5px; font-weight:600; padding:8px 14px; border-radius:8px; transition:var(--transition); letter-spacing:.2px; }
 .menu a:hover { color:var(--ice); background:var(--surface-2); }
-
-.nav-cta {
-  background: var(--gold);
-  color: #1a0f00 !important;
-  padding: 10px 22px !important;
-  border-radius: 30px !important;
-  font-weight: 700 !important;
-  letter-spacing:.3px !important;
-}
-.nav-cta:hover { background: #fff !important; color:#000 !important; transform:translateY(-1px); box-shadow:0 8px 24px rgba(245,166,35,0.4) !important; }
-
+.nav-cta { background:var(--gold); color:#1a0f00 !important; padding:10px 22px !important; border-radius:30px !important; font-weight:700 !important; letter-spacing:.3px !important; }
+.nav-cta:hover { background:#fff !important; color:#000 !important; transform:translateY(-1px); box-shadow:0 8px 24px rgba(245,166,35,0.4) !important; }
 .hamburger { display:none; background:none; border:none; cursor:pointer; padding:8px; color:var(--ice); font-size:22px; }
-
-/* mobile menu */
 @media(max-width:860px){
   .hamburger { display:flex; }
-  .menu {
-    display:none; flex-direction:column; align-items:flex-start;
-    position:absolute; top:72px; left:0; right:0;
-    background:rgba(6,15,34,0.97); backdrop-filter:blur(20px);
-    padding:16px 5% 24px; border-bottom:1px solid var(--line);
-    gap:2px;
-  }
+  .menu { display:none; flex-direction:column; align-items:flex-start; position:absolute; top:72px; left:0; right:0; background:rgba(6,15,34,0.97); backdrop-filter:blur(20px); padding:16px 5% 24px; border-bottom:1px solid var(--line); gap:2px; }
   .menu.open { display:flex; }
   .menu a { width:100%; padding:12px 16px; font-size:15px; }
 }
@@ -135,102 +102,40 @@ header.scrolled {
    HERO
 ══════════════════════════════════════════ */
 .hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 120px 6% 80px;
-  position: relative;
-  overflow: hidden;
+  min-height:100vh; display:flex; align-items:center;
+  padding:120px 6% 80px; position:relative; overflow:hidden;
   background:
     radial-gradient(ellipse 80% 60% at 70% 50%, rgba(245,166,35,0.07), transparent),
     radial-gradient(ellipse 60% 80% at 10% 80%, rgba(61,220,151,0.05), transparent),
     linear-gradient(160deg, #060f22 0%, #0b1a35 50%, #0d2040 100%);
 }
-
-/* decorative grid lines */
 .hero::before {
-  content:'';
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
 }
-
 .hero-inner { position:relative; z-index:1; max-width:680px; }
-
-.hero-eyebrow {
-  display: inline-flex; align-items:center; gap:8px;
-  background: var(--gold-dim);
-  border: 1px solid rgba(245,166,35,0.25);
-  border-radius:30px; padding:6px 16px;
-  font-size:12px; font-weight:700; letter-spacing:1.5px;
-  color:var(--gold); text-transform:uppercase;
-  margin-bottom:24px;
-}
+.hero-eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--gold-dim); border:1px solid rgba(245,166,35,0.25); border-radius:30px; padding:6px 16px; font-size:12px; font-weight:700; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase; margin-bottom:24px; }
 .hero-eyebrow .dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 1.8s infinite; }
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
-
-.hero h1 {
-  font-family:'Space Grotesk'; font-size:clamp(38px,5.5vw,68px);
-  font-weight:700; line-height:1.08; letter-spacing:-1px;
-  margin-bottom:20px;
-  color:var(--ice);
-}
+.hero h1 { font-family:'Space Grotesk'; font-size:clamp(38px,5.5vw,68px); font-weight:700; line-height:1.08; letter-spacing:-1px; margin-bottom:20px; color:var(--ice); }
 .hero h1 em { font-style:normal; color:var(--gold); }
-
-.hero-sub {
-  font-size:clamp(15px,1.8vw,18px); color:var(--mute);
-  line-height:1.65; margin-bottom:36px; max-width:520px;
-}
-
+.hero-sub { font-size:clamp(15px,1.8vw,18px); color:var(--mute); line-height:1.65; margin-bottom:36px; max-width:520px; }
 .hero-btns { display:flex; flex-wrap:wrap; gap:12px; }
-.btn-primary {
-  display:inline-flex; align-items:center; gap:9px;
-  background:var(--gold); color:#1a0f00;
-  font-weight:700; font-size:15px;
-  padding:14px 28px; border-radius:50px;
-  text-decoration:none; transition:var(--transition);
-  box-shadow: 0 8px 32px rgba(245,166,35,0.3);
-}
+.btn-primary { display:inline-flex; align-items:center; gap:9px; background:var(--gold); color:#1a0f00; font-weight:700; font-size:15px; padding:14px 28px; border-radius:50px; text-decoration:none; transition:var(--transition); box-shadow:0 8px 32px rgba(245,166,35,0.3); }
 .btn-primary:hover { background:#fff; transform:translateY(-2px); box-shadow:0 12px 40px rgba(245,166,35,0.45); }
-
-.btn-secondary {
-  display:inline-flex; align-items:center; gap:9px;
-  background:rgba(37,211,102,0.12); color:#25d366;
-  border:1px solid rgba(37,211,102,0.3);
-  font-weight:700; font-size:15px;
-  padding:14px 28px; border-radius:50px;
-  text-decoration:none; transition:var(--transition);
-}
+.btn-secondary { display:inline-flex; align-items:center; gap:9px; background:rgba(37,211,102,0.12); color:#25d366; border:1px solid rgba(37,211,102,0.3); font-weight:700; font-size:15px; padding:14px 28px; border-radius:50px; text-decoration:none; transition:var(--transition); }
 .btn-secondary:hover { background:rgba(37,211,102,0.2); transform:translateY(-2px); }
-
-.hero-stats {
-  display:flex; flex-wrap:wrap; gap:24px;
-  margin-top:48px; padding-top:40px;
-  border-top:1px solid var(--line);
-}
-.hero-stat-num {
-  font-family:'Space Grotesk'; font-size:32px; font-weight:700; color:var(--gold);
-}
+.hero-stats { display:flex; flex-wrap:wrap; gap:24px; margin-top:48px; padding-top:40px; border-top:1px solid var(--line); }
+.hero-stat-num { font-family:'Space Grotesk'; font-size:32px; font-weight:700; color:var(--gold); }
 .hero-stat-label { font-size:12px; color:var(--mute); margin-top:2px; letter-spacing:.5px; }
 
 /* ══════════════════════════════════════════
    TRUST STRIP
 ══════════════════════════════════════════ */
-.trust-strip {
-  background: var(--navy-2);
-  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  padding:18px 6%;
-  display:flex; flex-wrap:wrap; justify-content:center; gap:10px;
-}
-.trust-pill {
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--surface); border:1px solid var(--line);
-  border-radius:30px; padding:8px 18px;
-  font-size:13px; font-weight:600; color:var(--ice);
-  transition:var(--transition); cursor:default;
-}
+.trust-strip { background:var(--navy-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:18px 6%; display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+.trust-pill { display:inline-flex; align-items:center; gap:8px; background:var(--surface); border:1px solid var(--line); border-radius:30px; padding:8px 18px; font-size:13px; font-weight:600; color:var(--ice); transition:var(--transition); cursor:default; }
 .trust-pill:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-dim); }
 .trust-pill i { color:var(--teal); font-size:12px; }
 
@@ -238,21 +143,9 @@ header.scrolled {
    SECTION COMMON
 ══════════════════════════════════════════ */
 section { padding:90px 6%; }
-
-.section-tag {
-  display:inline-block;
-  font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-  color:var(--gold); margin-bottom:10px;
-}
-.section-title {
-  font-family:'Space Grotesk'; font-size:clamp(28px,3.5vw,42px);
-  font-weight:700; color:var(--ice);
-  margin-bottom:14px; line-height:1.15;
-}
-.section-sub {
-  font-size:15px; color:var(--mute); line-height:1.65;
-  max-width:560px; margin-bottom:48px;
-}
+.section-tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.section-title { font-family:'Space Grotesk'; font-size:clamp(28px,3.5vw,42px); font-weight:700; color:var(--ice); margin-bottom:14px; line-height:1.15; }
+.section-sub { font-size:15px; color:var(--mute); line-height:1.65; max-width:560px; margin-bottom:48px; }
 .section-header-center { text-align:center; }
 .section-header-center .section-sub { margin:0 auto 48px; }
 
@@ -260,93 +153,29 @@ section { padding:90px 6%; }
    BOOKING FORM
 ══════════════════════════════════════════ */
 #booking { background:var(--navy-2); }
-
-.booking-wrap {
-  max-width:860px; margin:0 auto;
-  background:var(--navy-3);
-  border:1px solid var(--line-2);
-  border-radius:var(--radius-lg);
-  padding:40px;
-  box-shadow:0 24px 80px rgba(0,0,0,0.45);
-  position:relative; overflow:hidden;
-}
-.booking-wrap::before {
-  content:''; position:absolute; top:0; left:15%; right:15%; height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-
-.booking-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:14px;
-}
+.booking-wrap { max-width:860px; margin:0 auto; background:var(--navy-3); border:1px solid var(--line-2); border-radius:var(--radius-lg); padding:40px; box-shadow:0 24px 80px rgba(0,0,0,0.45); position:relative; overflow:hidden; }
+.booking-wrap::before { content:''; position:absolute; top:0; left:15%; right:15%; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.booking-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 .booking-full { grid-column:1/-1; }
-
 .form-group { display:flex; flex-direction:column; gap:6px; }
 .form-label { font-size:11.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--mute); }
-
-.form-input, .form-select {
-  background:rgba(255,255,255,0.05);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:13px 15px;
-  color:var(--ice); font-size:14.5px;
-  font-family:'Plus Jakarta Sans',Arial,sans-serif;
-  outline:none; transition:var(--transition);
-  width:100%;
-}
+.form-input, .form-select { background:rgba(255,255,255,0.05); border:1px solid var(--line); border-radius:10px; padding:13px 15px; color:var(--ice); font-size:14.5px; font-family:'Plus Jakarta Sans',Arial,sans-serif; outline:none; transition:var(--transition); width:100%; }
 .form-input::placeholder { color:rgba(126,143,168,0.6); }
-.form-input:focus, .form-select:focus {
-  border-color:var(--gold);
-  background:rgba(245,166,35,0.05);
-  box-shadow:0 0 0 3px rgba(245,166,35,0.12);
-}
-.form-select { cursor:pointer; appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237e8fa8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 14px center;
-  padding-right:38px;
-}
+.form-input:focus, .form-select:focus { border-color:var(--gold); background:rgba(245,166,35,0.05); box-shadow:0 0 0 3px rgba(245,166,35,0.12); }
+.form-select { cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237e8fa8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px; }
 .form-select option { background:#0b1a35; }
-
-.booking-submit {
-  width:100%; padding:16px; margin-top:6px;
-  background:var(--gold); color:#1a0f00;
-  border:none; border-radius:12px;
-  font-family:'Space Grotesk'; font-size:16px; font-weight:700;
-  cursor:pointer; transition:var(--transition);
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 8px 24px rgba(245,166,35,0.3);
-}
+.booking-submit { width:100%; padding:16px; margin-top:6px; background:var(--gold); color:#1a0f00; border:none; border-radius:12px; font-family:'Space Grotesk'; font-size:16px; font-weight:700; cursor:pointer; transition:var(--transition); display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 8px 24px rgba(245,166,35,0.3); }
 .booking-submit:hover { background:#fff; transform:translateY(-2px); box-shadow:0 14px 36px rgba(245,166,35,0.4); }
 .booking-submit:disabled { opacity:.6; cursor:not-allowed; transform:none; }
-
-@media(max-width:640px){
-  .booking-grid { grid-template-columns:1fr; }
-  .booking-wrap { padding:24px 18px; }
-}
+@media(max-width:640px){ .booking-grid { grid-template-columns:1fr; } .booking-wrap { padding:24px 18px; } }
 
 /* ══════════════════════════════════════════
    SERVICES
 ══════════════════════════════════════════ */
-.services-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px;
-}
-.service-card {
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:28px 24px;
-  transition:var(--transition);
-}
-.service-card:hover {
-  border-color:var(--gold);
-  background:var(--gold-dim);
-  transform:translateY(-4px);
-}
-.service-icon {
-  width:46px; height:46px; border-radius:12px;
-  background:var(--gold-dim); border:1px solid rgba(245,166,35,0.2);
-  display:flex; align-items:center; justify-content:center;
-  font-size:20px; margin-bottom:18px;
-}
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+.service-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:28px 24px; transition:var(--transition); }
+.service-card:hover { border-color:var(--gold); background:var(--gold-dim); transform:translateY(-4px); }
+.service-icon { width:46px; height:46px; border-radius:12px; background:var(--gold-dim); border:1px solid rgba(245,166,35,0.2); display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:18px; }
 .service-card h3 { font-size:15px; font-weight:700; margin-bottom:8px; }
 .service-card p { font-size:13.5px; color:var(--mute); line-height:1.6; }
 
@@ -354,46 +183,21 @@ section { padding:90px 6%; }
    CARS
 ══════════════════════════════════════════ */
 #cars { background:var(--navy-2); }
-.cars-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px;
-}
-.car-card {
-  background:var(--navy-3);
-  border:1px solid var(--line);
-  border-radius:var(--radius-lg);
-  overflow:hidden;
-  transition:var(--transition);
-}
+.cars-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px; }
+.car-card { background:var(--navy-3); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; transition:var(--transition); }
 .car-card:hover { border-color:var(--line-2); transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.4); }
 .car-img-wrap { position:relative; overflow:hidden; }
-.car-img-wrap img {
-  width:100%; height:200px; object-fit:cover;
-  transition:transform 0.5s ease;
-  display:block;
-}
+.car-img-wrap img { width:100%; height:200px; object-fit:cover; transition:transform 0.5s ease; display:block; }
 .car-card:hover .car-img-wrap img { transform:scale(1.06); }
 .car-body { padding:22px; }
 .car-body h3 { font-family:'Space Grotesk'; font-size:17px; font-weight:700; margin-bottom:6px; }
-.car-seater {
-  display:inline-flex; align-items:center; gap:6px;
-  font-size:12px; color:var(--teal); font-weight:600;
-  background:var(--teal-dim); border-radius:20px;
-  padding:4px 12px; margin-bottom:14px;
-}
+.car-seater { display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--teal); font-weight:600; background:var(--teal-dim); border-radius:20px; padding:4px 12px; margin-bottom:14px; }
 
 /* ══════════════════════════════════════════
    ROUTES
 ══════════════════════════════════════════ */
-.routes-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;
-}
-.route-card {
-  background:var(--navy-3);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden; transition:var(--transition);
-  display:flex; flex-direction:column;
-}
+.routes-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.route-card { background:var(--navy-3); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:var(--transition); display:flex; flex-direction:column; }
 .route-card:hover { border-color:rgba(245,166,35,0.3); transform:translateY(-4px); }
 .route-card img { width:100%; height:160px; object-fit:cover; display:block; }
 .route-body { padding:20px; flex:1; display:flex; flex-direction:column; }
@@ -402,100 +206,272 @@ section { padding:90px 6%; }
 .route-price { font-size:13px; }
 .route-price span { font-weight:700; color:var(--gold); font-family:'Space Grotesk'; }
 .route-note { font-size:11.5px; color:var(--mute); margin-bottom:16px; }
-.route-btn {
-  margin-top:auto; width:100%; padding:12px;
-  background:var(--gold-dim); border:1px solid rgba(245,166,35,0.3);
-  color:var(--gold); font-weight:700; font-size:14px;
-  border-radius:10px; cursor:pointer; transition:var(--transition);
-  font-family:'Plus Jakarta Sans',Arial,sans-serif;
-}
+.route-btn { margin-top:auto; width:100%; padding:12px; background:var(--gold-dim); border:1px solid rgba(245,166,35,0.3); color:var(--gold); font-weight:700; font-size:14px; border-radius:10px; cursor:pointer; transition:var(--transition); font-family:'Plus Jakarta Sans',Arial,sans-serif; }
 .route-btn:hover { background:var(--gold); color:#1a0f00; border-color:var(--gold); }
 
 /* ══════════════════════════════════════════
-   ROUND TRIP
+   ROUND TRIP — PREMIUM REDESIGN
 ══════════════════════════════════════════ */
 #roundtrip { background:var(--navy-2); }
+
 .roundtrip-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
 }
+
 .rt-card {
-  background: linear-gradient(145deg,#0f2348,#0b1a35);
-  border:1px solid var(--line-2);
-  border-radius:var(--radius-lg);
-  padding:30px 24px;
-  text-align:center; transition:var(--transition);
-  position:relative; overflow:hidden;
+  background: linear-gradient(160deg, #0d1f3e 0%, #091629 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 36px 28px 32px;
+  text-align:center;
+  transition: var(--transition);
+  position:relative;
+  overflow:hidden;
+  cursor:default;
 }
+
+/* Ambient glow behind each card */
+.rt-card::after {
+  content:'';
+  position:absolute;
+  bottom:-40px; left:50%;
+  transform:translateX(-50%);
+  width:200px; height:200px;
+  border-radius:50%;
+  background:var(--rt-glow, rgba(245,166,35,0.08));
+  filter:blur(40px);
+  pointer-events:none;
+  transition:var(--transition);
+}
+.rt-card:hover::after { opacity:1.8; transform:translateX(-50%) scale(1.2); }
+
+/* Top accent line with gradient */
 .rt-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:3px;
-  background:linear-gradient(90deg,var(--gold),#ff8800);
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background: var(--rt-accent, linear-gradient(90deg, #f5a623, #ffcc66));
 }
-.rt-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.4); }
-.rt-card img { width:100%; height:140px; object-fit:contain; margin-bottom:16px; }
-.rt-card h3 { font-family:'Space Grotesk'; font-size:18px; font-weight:700; margin-bottom:6px; }
-.rt-card .capacity { font-size:13px; color:var(--mute); margin-bottom:20px; }
-.rt-rate { font-family:'Space Grotesk'; font-size:36px; font-weight:700; color:var(--gold); margin:16px 0; }
-.rt-rate sub { font-size:14px; color:var(--mute); }
-.rt-divider { border:none; border-top:1px solid var(--line); margin:16px 0; }
+
+.rt-card:hover {
+  transform:translateY(-8px);
+  border-color: rgba(245,166,35,0.25);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,166,35,0.1);
+}
+
+/* Vehicle image */
+.rt-img-wrap {
+  position:relative;
+  margin-bottom:20px;
+}
+.rt-img-wrap img {
+  width:100%; height:150px; object-fit:contain;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+}
+.rt-card:hover .rt-img-wrap img {
+  transform: translateY(-6px) scale(1.04);
+  filter:drop-shadow(0 18px 36px rgba(245,166,35,0.2));
+}
+
+/* Badge for most popular */
+.rt-badge {
+  position:absolute; top:-8px; right:12px;
+  background: linear-gradient(90deg, #f5a623, #ffcc66);
+  color:#1a0f00; font-size:10px; font-weight:800;
+  letter-spacing:1.2px; text-transform:uppercase;
+  padding:4px 12px; border-radius:20px;
+  font-family:'Space Grotesk';
+  box-shadow:0 4px 12px rgba(245,166,35,0.4);
+}
+
+.rt-card h3 {
+  font-family:'Space Grotesk';
+  font-size:20px; font-weight:700;
+  color:var(--ice); margin-bottom:4px;
+}
+.rt-card .capacity {
+  font-size:12.5px; color:var(--mute);
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin-bottom:24px;
+}
+.rt-card .capacity i { font-size:11px; color:var(--teal); }
+
+/* ── THE HERO NUMBER ── */
+.rt-rate-block {
+  margin:0 -8px 24px;
+  padding:20px 16px;
+  background: rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:16px;
+  position:relative;
+}
+
+.rt-rate-label {
+  font-size:10px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--mute); margin-bottom:6px;
+}
+
+.rt-rate {
+  font-family:'Space Grotesk';
+  font-size:56px;
+  font-weight:700;
+  line-height:1;
+  color: var(--gold);
+  letter-spacing:-2px;
+  position:relative;
+  display:inline-flex;
+  align-items:flex-start;
+  gap:2px;
+  /* Shimmer animation on hover */
+  transition: all 0.3s ease;
+}
+
+.rt-rate-sym {
+  font-size:26px;
+  font-weight:700;
+  color:var(--gold-light);
+  margin-top:6px;
+  letter-spacing:0;
+}
+
+.rt-rate-num {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmerRate 3s infinite;
+  transition:all 0.3s ease;
+}
+
+.rt-card:hover .rt-rate-num {
+  animation:shimmerRate 1.2s infinite;
+  filter:drop-shadow(0 0 20px rgba(245,166,35,0.5));
+}
+
+@keyframes shimmerRate {
+  0%   { background-position:200% 0; }
+  100% { background-position:-200% 0; }
+}
+
+.rt-rate-unit {
+  font-family:'Space Grotesk';
+  font-size:13px;
+  color:var(--mute);
+  font-weight:600;
+  align-self:flex-end;
+  margin-bottom:8px;
+  letter-spacing:.5px;
+}
+
+/* Count-up effect via data attribute */
+.rt-rate-num { display:inline-block; }
+
+/* Divider with icon */
+.rt-divider {
+  display:flex; align-items:center; gap:10px;
+  margin:0 0 20px;
+  color:var(--mute);
+  font-size:11px;
+}
+.rt-divider::before, .rt-divider::after {
+  content:''; flex:1; height:1px; background:var(--line);
+}
+
+/* Feature pills */
+.rt-features {
+  display:flex; gap:8px; justify-content:center;
+  flex-wrap:wrap; margin-bottom:24px;
+}
+.rt-feature-pill {
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:20px; padding:5px 12px;
+  font-size:11.5px; color:rgba(238,242,248,0.65);
+}
+.rt-feature-pill i { color:var(--teal); font-size:10px; }
+
+/* Book button */
 .rt-book-btn {
-  width:100%; padding:14px;
-  background:var(--gold); color:#1a0f00;
+  width:100%; padding:15px;
+  background: linear-gradient(135deg, var(--gold), #e8941a);
+  color:#1a0f00;
   border:none; border-radius:50px;
-  font-weight:700; font-size:15px; cursor:pointer;
-  transition:var(--transition); font-family:'Plus Jakarta Sans',Arial,sans-serif;
+  font-weight:800; font-size:15px; cursor:pointer;
+  transition:var(--transition);
+  font-family:'Space Grotesk';
+  letter-spacing:.3px;
+  box-shadow: 0 8px 24px rgba(245,166,35,0.3);
+  position:relative;
+  overflow:hidden;
 }
-.rt-book-btn:hover { background:#fff; transform:scale(1.02); }
+.rt-book-btn::after {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity:0; transition:opacity .25s;
+}
+.rt-book-btn:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 16px 40px rgba(245,166,35,0.45); }
+.rt-book-btn:hover::after { opacity:1; }
+.rt-book-btn:active { transform:translateY(0) scale(0.99); }
+
+/* Sedan variant */
+.rt-card.sedan { --rt-glow:rgba(120,160,255,0.1); --rt-accent:linear-gradient(90deg,#4a90d9,#7fb3f5); }
+.rt-card.sedan .rt-rate-num {
+  background:linear-gradient(135deg,#4a90d9 0%,#a0c4f8 50%,#4a90d9 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.rt-card.sedan .rt-book-btn { background:linear-gradient(135deg,#4a90d9,#2e6bb0); color:white; box-shadow:0 8px 24px rgba(74,144,217,0.35); }
+.rt-card.sedan .rt-book-btn:hover { box-shadow:0 16px 40px rgba(74,144,217,0.5); }
+
+/* Ertiga variant */
+.rt-card.ertiga { --rt-glow:rgba(245,166,35,0.1); --rt-accent:linear-gradient(90deg,#f5a623,#ffcc66); }
+
+/* Crysta variant */
+.rt-card.crysta { --rt-glow:rgba(61,220,151,0.1); --rt-accent:linear-gradient(90deg,#3ddc97,#22b075); }
+.rt-card.crysta .rt-rate-num {
+  background:linear-gradient(135deg,#3ddc97 0%,#a8f0d8 50%,#3ddc97 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.rt-card.crysta .rt-book-btn { background:linear-gradient(135deg,#3ddc97,#22b075); color:#081a10; box-shadow:0 8px 24px rgba(61,220,151,0.3); }
+.rt-card.crysta .rt-book-btn:hover { box-shadow:0 16px 40px rgba(61,220,151,0.45); }
+
+/* Number count-up animation */
+@keyframes countUp {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.rt-rate-num.animate { animation:countUp 0.5s cubic-bezier(0.22,1,0.36,1) both; }
 
 /* ══════════════════════════════════════════
    REVIEWS
 ══════════════════════════════════════════ */
 #reviews { background:var(--navy); }
-.reviews-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;
-  margin-bottom:36px;
-}
-.review-card {
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:22px;
-  transition:var(--transition);
-}
+.reviews-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-bottom:36px; }
+.review-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px; transition:var(--transition); }
 .review-card:hover { border-color:var(--line-2); transform:translateY(-3px); }
 .review-stars { color:var(--gold); font-size:13px; margin-bottom:12px; letter-spacing:1px; }
 .review-text { font-size:13.5px; color:rgba(238,242,248,0.8); line-height:1.65; margin-bottom:16px; }
 .reviewer { font-size:12.5px; font-weight:700; color:var(--mute); }
 .hidden-review { display:none; }
 .see-more-wrap { text-align:center; }
-.see-more-btn {
-  padding:13px 32px; background:transparent;
-  border:1px solid var(--line-2); color:var(--ice);
-  border-radius:50px; font-weight:700; cursor:pointer;
-  font-size:14px; transition:var(--transition);
-  font-family:'Plus Jakarta Sans',Arial,sans-serif;
-}
+.see-more-btn { padding:13px 32px; background:transparent; border:1px solid var(--line-2); color:var(--ice); border-radius:50px; font-weight:700; cursor:pointer; font-size:14px; transition:var(--transition); font-family:'Plus Jakarta Sans',Arial,sans-serif; }
 .see-more-btn:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-dim); }
 
 /* ══════════════════════════════════════════
    CONTACT
 ══════════════════════════════════════════ */
-#contact {
-  background: linear-gradient(135deg,#070f24,#0e2040);
-  border-top:1px solid var(--line);
-}
+#contact { background:linear-gradient(135deg,#070f24,#0e2040); border-top:1px solid var(--line); }
 .contact-inner { max-width:680px; margin:0 auto; text-align:center; }
-.contact-phone {
-  font-family:'Space Grotesk'; font-size:clamp(36px,6vw,64px);
-  font-weight:700; color:var(--gold); margin:20px 0 32px;
-  letter-spacing:-1px;
-}
+.contact-phone { font-family:'Space Grotesk'; font-size:clamp(36px,6vw,64px); font-weight:700; color:var(--gold); margin:20px 0 32px; letter-spacing:-1px; }
 .contact-btns { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
-.contact-btn {
-  display:inline-flex; align-items:center; gap:9px;
-  padding:13px 26px; border-radius:50px;
-  font-weight:700; font-size:14.5px;
-  text-decoration:none; transition:var(--transition);
-}
+.contact-btn { display:inline-flex; align-items:center; gap:9px; padding:13px 26px; border-radius:50px; font-weight:700; font-size:14.5px; text-decoration:none; transition:var(--transition); }
 .contact-btn-gold { background:var(--gold); color:#1a0f00; box-shadow:0 8px 24px rgba(245,166,35,0.3); }
 .contact-btn-gold:hover { background:#fff; transform:translateY(-2px); }
 .contact-btn-green { background:rgba(37,211,102,0.12); color:#25d366; border:1px solid rgba(37,211,102,0.3); }
@@ -506,56 +482,23 @@ section { padding:90px 6%; }
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
-.footer {
-  background:#030810;
-  border-top:1px solid var(--line);
-  padding:60px 6% 30px;
-}
-.footer-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:48px;
-  max-width:1100px; margin:0 auto 48px;
-}
-.footer-col h4 {
-  font-family:'Space Grotesk'; font-size:13.5px; font-weight:700;
-  color:var(--gold); letter-spacing:1px; text-transform:uppercase;
-  margin-bottom:18px;
-}
-.footer-col a {
-  display:block; color:rgba(238,242,248,0.6);
-  text-decoration:none; font-size:13.5px;
-  margin-bottom:10px; transition:var(--transition);
-}
+.footer { background:#030810; border-top:1px solid var(--line); padding:60px 6% 30px; }
+.footer-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; max-width:1100px; margin:0 auto 48px; }
+.footer-col h4 { font-family:'Space Grotesk'; font-size:13.5px; font-weight:700; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:18px; }
+.footer-col a { display:block; color:rgba(238,242,248,0.6); text-decoration:none; font-size:13.5px; margin-bottom:10px; transition:var(--transition); }
 .footer-col a:hover { color:var(--gold); transform:translateX(4px); }
 .footer-col p { font-size:13px; color:rgba(238,242,248,0.55); line-height:1.7; margin-bottom:8px; }
 .footer-map { border-radius:10px; overflow:hidden; margin-top:12px; border:1px solid var(--line); }
 .footer-map iframe { display:block; }
-.footer-bottom {
-  max-width:1100px; margin:0 auto;
-  border-top:1px solid var(--line);
-  padding-top:24px;
-  text-align:center; font-size:12.5px; color:rgba(238,242,248,0.35);
-}
-.footer-keywords {
-  font-size:12px; color:rgba(238,242,248,0.25);
-  max-width:1100px; margin:12px auto 0;
-  text-align:center; line-height:1.8;
-}
-@media(max-width:768px){
-  .footer-grid { grid-template-columns:1fr; gap:32px; }
-}
+.footer-bottom { max-width:1100px; margin:0 auto; border-top:1px solid var(--line); padding-top:24px; text-align:center; font-size:12.5px; color:rgba(238,242,248,0.35); }
+.footer-keywords { font-size:12px; color:rgba(238,242,248,0.25); max-width:1100px; margin:12px auto 0; text-align:center; line-height:1.8; }
+@media(max-width:768px){ .footer-grid { grid-template-columns:1fr; gap:32px; } }
 
 /* ══════════════════════════════════════════
    FLOATING BUTTONS
 ══════════════════════════════════════════ */
 .float-wrap { position:fixed; bottom:28px; right:24px; z-index:9999; display:flex; flex-direction:column; gap:12px; }
-.float-btn {
-  width:58px; height:58px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:22px; text-decoration:none;
-  box-shadow:0 8px 24px rgba(0,0,0,0.4);
-  transition:var(--transition);
-  animation:floatAnim 3s infinite ease-in-out;
-}
+.float-btn { width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; text-decoration:none; box-shadow:0 8px 24px rgba(0,0,0,0.4); transition:var(--transition); animation:floatAnim 3s infinite ease-in-out; }
 .float-btn:hover { transform:scale(1.12) translateY(-2px); animation:none; }
 .float-wa { background:linear-gradient(135deg,#25d366,#128c7e); color:white; }
 .float-call { background:linear-gradient(135deg,var(--gold),#ff8800); color:#1a0f00; animation-delay:.5s; }
@@ -564,14 +507,7 @@ section { padding:90px 6%; }
 /* ══════════════════════════════════════════
    RATING BOX
 ══════════════════════════════════════════ */
-.rating-box {
-  position:fixed; left:20px; bottom:28px;
-  background:var(--navy-2);
-  border:1px solid rgba(245,166,35,0.3);
-  border-radius:12px; padding:10px 16px;
-  font-size:13px; font-weight:600; z-index:9999;
-  box-shadow:0 8px 24px rgba(0,0,0,0.3);
-}
+.rating-box { position:fixed; left:20px; bottom:28px; background:var(--navy-2); border:1px solid rgba(245,166,35,0.3); border-radius:12px; padding:10px 16px; font-size:13px; font-weight:600; z-index:9999; box-shadow:0 8px 24px rgba(0,0,0,0.3); }
 .rating-box span { color:var(--gold); font-family:'Space Grotesk'; font-weight:700; }
 .rating-count { font-size:11px; color:var(--mute); margin-top:2px; }
 @media(max-width:640px) { .rating-box { display:none; } }
@@ -579,22 +515,9 @@ section { padding:90px 6%; }
 /* ══════════════════════════════════════════
    LOADING SCREEN
 ══════════════════════════════════════════ */
-#loadingScreen {
-  position:fixed; inset:0; background:rgba(6,15,34,0.92);
-  display:none; align-items:center; justify-content:center;
-  z-index:99999; backdrop-filter:blur(6px);
-}
-.loader-box {
-  text-align:center; padding:36px 42px;
-  background:var(--navy-3); border:1px solid var(--line-2);
-  border-radius:var(--radius-lg); box-shadow:0 24px 60px rgba(0,0,0,0.5);
-}
-.spinner {
-  width:60px; height:60px; margin:0 auto 18px;
-  border:5px solid var(--line);
-  border-top-color:var(--gold);
-  border-radius:50%; animation:spin 0.9s linear infinite;
-}
+#loadingScreen { position:fixed; inset:0; background:rgba(6,15,34,0.92); display:none; align-items:center; justify-content:center; z-index:99999; backdrop-filter:blur(6px); }
+.loader-box { text-align:center; padding:36px 42px; background:var(--navy-3); border:1px solid var(--line-2); border-radius:var(--radius-lg); box-shadow:0 24px 60px rgba(0,0,0,0.5); }
+.spinner { width:60px; height:60px; margin:0 auto 18px; border:5px solid var(--line); border-top-color:var(--gold); border-radius:50%; animation:spin 0.9s linear infinite; }
 @keyframes spin { 100%{transform:rotate(360deg);} }
 .loader-box h3 { font-family:'Space Grotesk'; color:var(--gold); font-size:17px; margin-bottom:6px; }
 .loader-box p { color:var(--mute); font-size:13.5px; }
@@ -602,17 +525,130 @@ section { padding:90px 6%; }
 /* ══════════════════════════════════════════
    TOAST
 ══════════════════════════════════════════ */
-#toast {
-  position:fixed; top:80px; right:20px; z-index:99999;
-  background:var(--navy-3); border:1px solid var(--teal);
-  color:var(--teal); padding:14px 20px; border-radius:10px;
-  font-size:14px; font-weight:600;
-  opacity:0; transform:translateX(30px);
-  transition:.3s ease; pointer-events:none;
-  max-width:320px; box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
+#toast { position:fixed; top:80px; right:20px; z-index:99999; background:var(--navy-3); border:1px solid var(--teal); color:var(--teal); padding:14px 20px; border-radius:10px; font-size:14px; font-weight:600; opacity:0; transform:translateX(30px); transition:.3s ease; pointer-events:none; max-width:320px; box-shadow:0 10px 30px rgba(0,0,0,0.4); }
 #toast.show { opacity:1; transform:translateX(0); }
 #toast.error { border-color:var(--gold); color:var(--gold); }
+
+/* ══════════════════════════════════════════
+   SUCCESS MODAL — PROFESSIONAL
+══════════════════════════════════════════ */
+#successModal {
+  position:fixed; inset:0; z-index:10000;
+  display:none;
+  align-items:center; justify-content:center;
+  background:rgba(4,10,24,0.88);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+.success-card {
+  background: linear-gradient(145deg, #0f2348 0%, #091629 100%);
+  border:1px solid rgba(245,166,35,0.35);
+  border-radius:28px;
+  padding:52px 44px 44px;
+  max-width:480px;
+  width:calc(100% - 40px);
+  text-align:center;
+  box-shadow:
+    0 0 0 1px rgba(245,166,35,0.08),
+    0 40px 100px rgba(0,0,0,0.65),
+    0 0 80px rgba(245,166,35,0.06);
+  position:relative;
+  overflow:hidden;
+  animation:successSlideIn 0.5s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* Gold top beam */
+.success-card::before {
+  content:''; position:absolute; top:0; left:12%; right:12%; height:2px;
+  background:linear-gradient(90deg,transparent,#f5a623 40%,#ffcc66 60%,transparent);
+}
+/* Ambient glow */
+.success-card::after {
+  content:''; position:absolute; bottom:-60px; left:50%;
+  transform:translateX(-50%);
+  width:300px; height:300px; border-radius:50%;
+  background:radial-gradient(circle, rgba(245,166,35,0.1), transparent 70%);
+  pointer-events:none;
+}
+
+/* Checkmark */
+.success-check {
+  width:88px; height:88px; border-radius:50%;
+  background:rgba(61,220,151,0.1);
+  border:2px solid rgba(61,220,151,0.35);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 28px;
+  animation:successPop 0.55s 0.15s cubic-bezier(0.22,1,0.36,1) both;
+  position:relative; z-index:1;
+}
+.success-check svg path {
+  stroke-dasharray:42;
+  stroke-dashoffset:42;
+  animation:drawCheck 0.5s 0.5s ease forwards;
+}
+
+.success-eyebrow {
+  font-size:10.5px; font-weight:700;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--teal); margin-bottom:10px;
+  position:relative; z-index:1;
+}
+
+.success-title {
+  font-family:'Space Grotesk';
+  font-size:28px; font-weight:700;
+  color:var(--gold); margin-bottom:16px;
+  letter-spacing:-0.5px;
+  position:relative; z-index:1;
+}
+
+.success-message {
+  font-size:15.5px; color:rgba(238,242,248,0.78);
+  line-height:1.72; margin-bottom:32px;
+  position:relative; z-index:1;
+}
+
+/* Progress bar */
+.success-progress-wrap {
+  background:rgba(255,255,255,0.06);
+  border-radius:4px; height:4px;
+  overflow:hidden; margin-bottom:14px;
+  position:relative; z-index:1;
+}
+.success-progress-bar {
+  height:100%;
+  background:linear-gradient(90deg,#f5a623,#ffcc66);
+  border-radius:4px;
+  width:100%;
+  animation:drainBar 3s linear forwards;
+}
+.success-hint {
+  font-size:12px; color:var(--mute);
+  letter-spacing:.3px;
+  position:relative; z-index:1;
+}
+
+/* Animations */
+@keyframes successSlideIn {
+  from { opacity:0; transform:translateY(32px) scale(0.94); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+@keyframes successPop {
+  from { opacity:0; transform:scale(0.5) rotate(-10deg); }
+  to   { opacity:1; transform:scale(1) rotate(0deg); }
+}
+@keyframes drawCheck {
+  to { stroke-dashoffset:0; }
+}
+@keyframes drainBar {
+  from { width:100%; }
+  to   { width:0%; }
+}
+@keyframes fadeOutModal {
+  from { opacity:1; transform:scale(1); }
+  to   { opacity:0; transform:scale(0.96); }
+}
 </style>
 </head>
 <body>
@@ -633,7 +669,6 @@ section { padding:90px 6%; }
         <span>& Travel</span>
       </div>
     </a>
-
     <div class="menu" id="mainMenu">
       <a href="#services">Services</a>
       <a href="#cars">Fleet</a>
@@ -643,7 +678,6 @@ section { padding:90px 6%; }
       <a href="about.html">About</a>
       <a href="#contact" class="nav-cta">📞 97244 29334</a>
     </div>
-
     <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <i class="fas fa-bars" id="hamburgerIcon"></i>
     </button>
@@ -653,10 +687,7 @@ section { padding:90px 6%; }
 <!-- Hero -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="dot"></span>
-      Ahmedabad's Most Trusted Cab Service
-    </div>
+    <div class="hero-eyebrow"><span class="dot"></span>Ahmedabad's Most Trusted Cab Service</div>
     <h1>Premium Cab Service<br>Across <em>Gujarat</em></h1>
     <p class="hero-sub">Safe, comfortable and reliable travel for outstation trips, airport transfers, corporate travel and Gujarat tours — available 24×7.</p>
     <div class="hero-btns">
@@ -664,22 +695,10 @@ section { padding:90px 6%; }
       <a href="https://wa.me/919724429334?text=Hello%20Moksh%20Tours%20%26%20Travel,%20I%20want%20cab%20service.%20Please%20share%20details." class="btn-secondary" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">100+</div>
-        <div class="hero-stat-label">Happy Customers</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">4.9★</div>
-        <div class="hero-stat-label">Google Rating</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">24×7</div>
-        <div class="hero-stat-label">Available</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">50+</div>
-        <div class="hero-stat-label">Gujarat Destinations</div>
-      </div>
+      <div><div class="hero-stat-num">100+</div><div class="hero-stat-label">Happy Customers</div></div>
+      <div><div class="hero-stat-num">4.9★</div><div class="hero-stat-label">Google Rating</div></div>
+      <div><div class="hero-stat-num">24×7</div><div class="hero-stat-label">Available</div></div>
+      <div><div class="hero-stat-num">50+</div><div class="hero-stat-label">Gujarat Destinations</div></div>
     </div>
   </div>
 </section>
@@ -701,35 +720,28 @@ section { padding:90px 6%; }
     <h2 class="section-title">Book Your Cab Instantly</h2>
     <p class="section-sub">Fill in your trip details and we'll confirm on WhatsApp within minutes.</p>
   </div>
-
   <form id="bookingForm" class="booking-wrap">
     <div class="booking-grid">
-
       <div class="form-group">
         <label class="form-label">Your Name</label>
         <input class="form-input" type="text" id="bName" placeholder="Full name" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Mobile Number</label>
         <input class="form-input" type="tel" id="bMobile" placeholder="10-digit number" pattern="[0-9]{10}" inputmode="numeric" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Pickup Location</label>
         <input class="form-input" type="text" id="bPickup" list="gujaratLocations" placeholder="City or place" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Destination</label>
         <input class="form-input" type="text" id="bDestination" list="gujaratLocations" placeholder="City or place" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Journey Date</label>
         <input class="form-input" type="text" id="bDate" placeholder="Select date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required>
       </div>
-
       <div class="form-group" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
         <div>
           <label class="form-label">Hour</label>
@@ -747,7 +759,6 @@ section { padding:90px 6%; }
           </select>
         </div>
       </div>
-
       <div class="form-group">
         <label class="form-label">Vehicle Type</label>
         <select class="form-select" id="bCar">
@@ -757,7 +768,6 @@ section { padding:90px 6%; }
           <option>Fortuner</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label">Passengers</label>
         <select class="form-select" id="bPassenger">
@@ -769,7 +779,6 @@ section { padding:90px 6%; }
           <option>10–15 Passengers</option>
         </select>
       </div>
-
       <div class="form-group booking-full">
         <label class="form-label">Trip Type</label>
         <select class="form-select" id="bTrip">
@@ -778,9 +787,7 @@ section { padding:90px 6%; }
           <option>Rental</option>
         </select>
       </div>
-
     </div>
-
     <button type="submit" class="booking-submit" id="bookBtn">
       <i class="fab fa-whatsapp"></i> Confirm Booking on WhatsApp
     </button>
@@ -864,7 +871,6 @@ section { padding:90px 6%; }
     <p class="section-sub">Toll + driver charges inclusive. Transparent pricing — no surprises.</p>
   </div>
   <div class="routes-grid">
-
     <div class="route-card">
       <img src="AV.png" alt="Ahmedabad to Vadodara">
       <div class="route-body">
@@ -877,7 +883,6 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Vadodara','1799','2699')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
     <div class="route-card">
       <img src="AS.png" alt="Ahmedabad to Surat">
       <div class="route-body">
@@ -890,7 +895,6 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Surat','3599','3999')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
     <div class="route-card">
       <img src="AR.png" alt="Ahmedabad to Rajkot">
       <div class="route-body">
@@ -903,7 +907,6 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Rajkot','2499','2999')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
     <div class="route-card">
       <img src="ABB.jpg" alt="Ahmedabad to Bhavnagar">
       <div class="route-body">
@@ -916,7 +919,6 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Bhavnagar','2699','3199')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
     <div class="route-card">
       <img src="AM.jpg" alt="Ahmedabad to Mumbai">
       <div class="route-body">
@@ -929,7 +931,6 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Mumbai','7500','8999')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
     <div class="route-card">
       <img src="AP.jpg" alt="Ahmedabad to Pune">
       <div class="route-body">
@@ -942,7 +943,6 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Pune','9800','11000')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
     <div class="route-card">
       <img src="AG.jpg" alt="Ahmedabad to Gandhidham">
       <div class="route-body">
@@ -955,7 +955,6 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Gandhidham','3699','4199')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
     <div class="route-card">
       <img src="AJ.jpg" alt="Ahmedabad to Jaipur">
       <div class="route-body">
@@ -968,44 +967,107 @@ section { padding:90px 6%; }
         <button class="route-btn" onclick="bookRoute('Ahmedabad - Jaipur','8700','11500')"><i class="fas fa-arrow-right"></i> Book Now</button>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ROUND TRIP -->
 <section id="roundtrip">
-  <div class="section-header-center" style="margin-bottom:48px">
+  <div class="section-header-center" style="margin-bottom:56px">
     <div class="section-tag">Round Trip</div>
     <h2 class="section-title">Round Trip Rates</h2>
-    <p class="section-sub">Transparent per-kilometre pricing for your complete round trip journey.</p>
+    <p class="section-sub">Transparent per-kilometre pricing for your complete round trip journey. No hidden charges, ever.</p>
   </div>
   <div class="roundtrip-grid">
 
-    <div class="rt-card">
-      <img src="Swift Dzire.jpg" alt="Swift Dzire">
+    <!-- Sedan -->
+    <div class="rt-card sedan">
+      <div class="rt-img-wrap">
+        <img src="Swift Dzire.jpg" alt="Swift Dzire">
+      </div>
       <h3>Swift Dzire</h3>
-      <p class="capacity">4 Persons · 3 Bags</p>
-      <hr class="rt-divider">
-      <div class="rt-rate">₹11<sub>/km</sub></div>
-      <button class="rt-book-btn" onclick="bookRoundTrip('Swift Dzire','11')">Book Now</button>
+      <div class="capacity">
+        <span><i class="fas fa-user"></i> 4 Persons</span>
+        <span>·</span>
+        <span><i class="fas fa-briefcase"></i> 3 Bags</span>
+      </div>
+      <div class="rt-rate-block">
+        <div class="rt-rate-label">Round Trip Rate</div>
+        <div class="rt-rate">
+          <span class="rt-rate-sym">₹</span>
+          <span class="rt-rate-num" data-target="11">11</span>
+          <span class="rt-rate-unit">&nbsp;/ km</span>
+        </div>
+      </div>
+      <div class="rt-divider"><i class="fas fa-circle" style="font-size:5px"></i></div>
+      <div class="rt-features">
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> AC Comfort</div>
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> Toll Included</div>
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> 24×7 Available</div>
+      </div>
+      <button class="rt-book-btn" onclick="bookRoundTrip('Swift Dzire','11')">
+        <i class="fas fa-calendar-check"></i> &nbsp;Book Now
+      </button>
     </div>
 
-    <div class="rt-card">
-      <img src="Ertigaa.png" alt="Ertiga">
+    <!-- Ertiga — Most Popular -->
+    <div class="rt-card ertiga">
+      <div class="rt-img-wrap">
+        <div class="rt-badge">Most Popular</div>
+        <img src="Ertigaa.png" alt="Ertiga">
+      </div>
       <h3>Maruti Ertiga</h3>
-      <p class="capacity">6 Persons · 4 Bags</p>
-      <hr class="rt-divider">
-      <div class="rt-rate">₹14<sub>/km</sub></div>
-      <button class="rt-book-btn" onclick="bookRoundTrip('Maruti Ertiga','14')">Book Now</button>
+      <div class="capacity">
+        <span><i class="fas fa-user"></i> 6 Persons</span>
+        <span>·</span>
+        <span><i class="fas fa-briefcase"></i> 4 Bags</span>
+      </div>
+      <div class="rt-rate-block">
+        <div class="rt-rate-label">Round Trip Rate</div>
+        <div class="rt-rate">
+          <span class="rt-rate-sym">₹</span>
+          <span class="rt-rate-num" data-target="14">14</span>
+          <span class="rt-rate-unit">&nbsp;/ km</span>
+        </div>
+      </div>
+      <div class="rt-divider"><i class="fas fa-circle" style="font-size:5px"></i></div>
+      <div class="rt-features">
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> Spacious Cabin</div>
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> Toll Included</div>
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> Family Ideal</div>
+      </div>
+      <button class="rt-book-btn" onclick="bookRoundTrip('Maruti Ertiga','14')">
+        <i class="fas fa-calendar-check"></i> &nbsp;Book Now
+      </button>
     </div>
 
-    <div class="rt-card">
-      <img src="Inova Crysta.png" alt="Innova Crysta">
+    <!-- Innova Crysta -->
+    <div class="rt-card crysta">
+      <div class="rt-img-wrap">
+        <img src="Inova Crysta.png" alt="Innova Crysta">
+      </div>
       <h3>Innova Crysta</h3>
-      <p class="capacity">6 Persons · 4 Bags</p>
-      <hr class="rt-divider">
-      <div class="rt-rate">₹19<sub>/km</sub></div>
-      <button class="rt-book-btn" onclick="bookRoundTrip('Innova Crysta','19')">Book Now</button>
+      <div class="capacity">
+        <span><i class="fas fa-user"></i> 6 Persons</span>
+        <span>·</span>
+        <span><i class="fas fa-briefcase"></i> 4 Bags</span>
+      </div>
+      <div class="rt-rate-block">
+        <div class="rt-rate-label">Round Trip Rate</div>
+        <div class="rt-rate">
+          <span class="rt-rate-sym">₹</span>
+          <span class="rt-rate-num" data-target="19">19</span>
+          <span class="rt-rate-unit">&nbsp;/ km</span>
+        </div>
+      </div>
+      <div class="rt-divider"><i class="fas fa-circle" style="font-size:5px"></i></div>
+      <div class="rt-features">
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> Premium SUV</div>
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> Toll Included</div>
+        <div class="rt-feature-pill"><i class="fas fa-check"></i> Long-Distance</div>
+      </div>
+      <button class="rt-book-btn" onclick="bookRoundTrip('Innova Crysta','19')">
+        <i class="fas fa-calendar-check"></i> &nbsp;Book Now
+      </button>
     </div>
 
   </div>
@@ -1019,46 +1081,14 @@ section { padding:90px 6%; }
     <p class="section-sub">Real experiences from real customers who chose Moksh Tours & Travel.</p>
   </div>
   <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Booked an outstation cab for a family trip across Gujarat. Vehicle arrived exactly on time, clean and comfortable. The driver was polite and professional. Highly recommended!</p>
-      <div class="reviewer">— Harsh P.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Excellent experience from start to finish. Transparent pricing with no hidden charges. The driver was courteous and knowledgeable about the routes.</p>
-      <div class="reviewer">— Riya S.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Used Moksh for airport pickup and a sightseeing tour. Both experiences were outstanding. Driver arrived before scheduled time and the journey was very comfortable.</p>
-      <div class="reviewer">— Karan M.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Our group trip was perfectly managed. Spacious, clean vehicle ideal for long-distance travel. Safe driving style and very helpful driver throughout the journey.</p>
-      <div class="reviewer">— Nehal T.</div>
-    </div>
-    <div class="review-card hidden-review">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Hired an Innova for Ahmedabad to Mount Abu trip. Vehicle condition was excellent and the journey was very comfortable. Highly recommended.</p>
-      <div class="reviewer">— Mehul S.</div>
-    </div>
-    <div class="review-card hidden-review">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Booked cabs for our wedding guests from Ahmedabad to Vadodara. Everything was managed perfectly and all vehicles arrived on time. Excellent coordination.</p>
-      <div class="reviewer">— Krunal T.</div>
-    </div>
-    <div class="review-card hidden-review">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Amazing experience during our Saputara family vacation. Clean vehicle, safe driving and transparent pricing. Will definitely book again.</p>
-      <div class="reviewer">— Nidhi R.</div>
-    </div>
-    <div class="review-card hidden-review">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Booked a round trip to Dwarka and Somnath. The driver was polite and knew all routes well. The trip was comfortable and completely hassle-free.</p>
-      <div class="reviewer">— Jay M.</div>
-    </div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Booked an outstation cab for a family trip across Gujarat. Vehicle arrived exactly on time, clean and comfortable. The driver was polite and professional. Highly recommended!</p><div class="reviewer">— Harsh P.</div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Excellent experience from start to finish. Transparent pricing with no hidden charges. The driver was courteous and knowledgeable about the routes.</p><div class="reviewer">— Riya S.</div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Used Moksh for airport pickup and a sightseeing tour. Both experiences were outstanding. Driver arrived before scheduled time and the journey was very comfortable.</p><div class="reviewer">— Karan M.</div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">Our group trip was perfectly managed. Spacious, clean vehicle ideal for long-distance travel. Safe driving style and very helpful driver throughout the journey.</p><div class="reviewer">— Nehal T.</div></div>
+    <div class="review-card hidden-review"><div class="review-stars">★★★★★</div><p class="review-text">Hired an Innova for Ahmedabad to Mount Abu trip. Vehicle condition was excellent and the journey was very comfortable. Highly recommended.</p><div class="reviewer">— Mehul S.</div></div>
+    <div class="review-card hidden-review"><div class="review-stars">★★★★★</div><p class="review-text">Booked cabs for our wedding guests from Ahmedabad to Vadodara. Everything was managed perfectly and all vehicles arrived on time. Excellent coordination.</p><div class="reviewer">— Krunal T.</div></div>
+    <div class="review-card hidden-review"><div class="review-stars">★★★★★</div><p class="review-text">Amazing experience during our Saputara family vacation. Clean vehicle, safe driving and transparent pricing. Will definitely book again.</p><div class="reviewer">— Nidhi R.</div></div>
+    <div class="review-card hidden-review"><div class="review-stars">★★★★★</div><p class="review-text">Booked a round trip to Dwarka and Somnath. The driver was polite and knew all routes well. The trip was comfortable and completely hassle-free.</p><div class="reviewer">— Jay M.</div></div>
   </div>
   <div class="see-more-wrap">
     <button class="see-more-btn" onclick="showMoreReviews()">Show More Reviews</button>
@@ -1116,12 +1146,8 @@ section { padding:90px 6%; }
 
 <!-- Floating Buttons -->
 <div class="float-wrap">
-  <a href="https://wa.me/919724429334?text=Hello%20Moksh%20Tours%20%26%20Travel,%20I%20want%20cab%20service.%20Please%20share%20details." class="float-btn float-wa" target="_blank" title="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="tel:+919724429334" class="float-btn float-call" title="Call Now">
-    <i class="fas fa-phone"></i>
-  </a>
+  <a href="https://wa.me/919724429334?text=Hello%20Moksh%20Tours%20%26%20Travel,%20I%20want%20cab%20service.%20Please%20share%20details." class="float-btn float-wa" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:+919724429334" class="float-btn float-call" title="Call Now"><i class="fas fa-phone"></i></a>
 </div>
 
 <!-- Loading Screen -->
@@ -1136,23 +1162,72 @@ section { padding:90px 6%; }
 <!-- Toast -->
 <div id="toast"></div>
 
-<!-- Firebase Module for saving bookings -->
+<!-- ══════════════════════════════════════════
+     SUCCESS MODAL — PROFESSIONAL
+══════════════════════════════════════════ -->
+<div id="successModal">
+  <div class="success-card" id="successCard">
+    <div class="success-check">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M9 21 L17 29 L31 13" stroke="#3ddc97" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="success-eyebrow">✦ Booking Received ✦</div>
+    <h2 class="success-title">You're All Set!</h2>
+    <p class="success-message" id="successMessage"></p>
+    <div class="success-progress-wrap">
+      <div class="success-progress-bar" id="successProgress"></div>
+    </div>
+    <div class="success-hint">Closing automatically in 3 seconds…</div>
+  </div>
+</div>
+
+<!-- Firebase Module -->
 <script type="module">
 import { saveDocument } from './firebase-config.js';
 
 async function saveBookingToFirebase(data) {
-  try {
-    await saveDocument('bookings', data);
-  } catch(e) {
-    console.error('Firebase save error:', e);
-  }
+  try { await saveDocument('bookings', data); }
+  catch(e) { console.error('Firebase save error:', e); }
 }
+
+function showSuccessModal(message) {
+  const modal    = document.getElementById('successModal');
+  const msgEl    = document.getElementById('successMessage');
+  const progress = document.getElementById('successProgress');
+
+  msgEl.innerHTML = message;
+  modal.style.display = 'flex';
+
+  // Reset & restart progress bar animation
+  progress.style.animation = 'none';
+  void progress.offsetWidth; // reflow
+  progress.style.animation = 'drainBar 3s linear forwards';
+
+  clearTimeout(window._successTimer);
+  window._successTimer = setTimeout(closeSuccessModal, 3000);
+}
+
+function closeSuccessModal() {
+  const modal = document.getElementById('successModal');
+  const card  = document.getElementById('successCard');
+  card.style.animation = 'fadeOutModal 0.35s cubic-bezier(0.4,0,0.2,1) forwards';
+  setTimeout(() => {
+    modal.style.display = 'none';
+    card.style.animation = '';
+  }, 350);
+}
+window.closeSuccessModal = closeSuccessModal;
+
+// Click outside to dismiss
+document.getElementById('successModal').addEventListener('click', function(e) {
+  if(e.target === this) closeSuccessModal();
+});
 
 // Main Booking Form
 document.getElementById('bookingForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('bookBtn');
-
   const name      = document.getElementById('bName').value.trim();
   const mobile    = document.getElementById('bMobile').value.trim();
   const pickup    = document.getElementById('bPickup').value.trim();
@@ -1164,33 +1239,25 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   const passenger = document.getElementById('bPassenger').value;
   const trip      = document.getElementById('bTrip').value;
 
-  if (!mobile || mobile.length !== 10 || isNaN(mobile)) {
-    showToast('Please enter a valid 10-digit mobile number', true);
-    return;
+  if(!mobile || mobile.length !== 10 || isNaN(mobile)) {
+    showToast('Please enter a valid 10-digit mobile number', true); return;
   }
-  if (!hour) {
-    showToast('Please select a pickup hour', true);
-    return;
+  if(!hour) {
+    showToast('Please select a pickup hour', true); return;
   }
 
   btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing…';
   document.getElementById('loadingScreen').style.display = 'flex';
 
   const time = hour + ' ' + ampm;
-
-  await saveBookingToFirebase({ 
-    name, mobile, pickup, destination: dest, date, time, 
-    car, passenger, trip, received: new Date() 
-  });
+  await saveBookingToFirebase({ name, mobile, pickup, destination:dest, date, time, car, passenger, trip, received: new Date() });
 
   setTimeout(() => {
     document.getElementById('loadingScreen').style.display = 'none';
-    document.getElementById('successMessage').innerHTML = 
-      `Your cab booking has been received successfully.<br><br>Our team will contact you shortly on <strong>${mobile}</strong> to confirm details and availability.`;
-    document.getElementById('successModal').style.display = 'flex';
-    
-    // Reset form
+    showSuccessModal(
+      `Your cab booking has been received successfully.<br><br>Our team will contact you shortly on <strong style="color:var(--gold)">${mobile}</strong> to confirm details and availability.`
+    );
     document.getElementById('bookingForm').reset();
     btn.disabled = false;
     btn.innerHTML = '<i class="fab fa-whatsapp"></i> Confirm Booking on WhatsApp';
@@ -1200,45 +1267,23 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 // Route Booking
 window.bookRoute = async function(route, sedan, suv) {
   const mobile = prompt('Enter your 10-digit mobile number to book this route:');
-  if (!mobile || mobile.length !== 10 || isNaN(mobile)) {
-    alert('Please enter a valid 10-digit mobile number.');
-    return;
-  }
-
-  await saveDocument('routeInquiries', { 
-    route, sedan, suv, mobile, received: new Date() 
-  });
-
-  document.getElementById('successMessage').innerHTML = 
-    `Booking request for <strong>${route}</strong> received.<br><br>Our team will contact you shortly on <strong>${mobile}</strong>.`;
-  document.getElementById('successModal').style.display = 'flex';
+  if(!mobile || mobile.length !== 10 || isNaN(mobile)) { alert('Please enter a valid 10-digit mobile number.'); return; }
+  await saveDocument('routeInquiries', { route, sedan, suv, mobile, received: new Date() });
+  showSuccessModal(`Booking request for <strong style="color:var(--gold)">${route}</strong> received.<br><br>Our team will contact you shortly on <strong style="color:var(--gold)">${mobile}</strong>.`);
 };
 
 // Round Trip Booking
 window.bookRoundTrip = async function(car, rate) {
   const mobile = prompt('Enter your 10-digit mobile number:');
-  if (!mobile || mobile.length !== 10 || isNaN(mobile)) {
-    alert('Please enter a valid 10-digit mobile number.');
-    return;
-  }
-
-  await saveDocument('roundTripRequests', { 
-    car, rate, mobile, received: new Date() 
-  });
-
-  document.getElementById('successMessage').innerHTML = 
-    `Round trip booking for <strong>${car}</strong> received.<br><br>Our team will contact you shortly on <strong>${mobile}</strong>.`;
-  document.getElementById('successModal').style.display = 'flex';
+  if(!mobile || mobile.length !== 10 || isNaN(mobile)) { alert('Please enter a valid 10-digit mobile number.'); return; }
+  await saveDocument('roundTripRequests', { car, rate, mobile, received: new Date() });
+  showSuccessModal(`Round trip booking for <strong style="color:var(--gold)">${car}</strong> at <strong style="color:var(--gold)">₹${rate}/km</strong> received.<br><br>Our team will contact you shortly on <strong style="color:var(--gold)">${mobile}</strong>.`);
 };
-
-function closeSuccessModal() {
-  document.getElementById('successModal').style.display = 'none';
-}
 
 function showToast(msg, isError) {
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className = 'toast show' + (isError ? ' error' : '');
+  t.className = 'show' + (isError ? ' error' : '');
   clearTimeout(window._toastTimer);
   window._toastTimer = setTimeout(() => t.className = '', 3500);
 }
@@ -1246,7 +1291,7 @@ window.showToast = showToast;
 </script>
 
 <script>
-// Header scroll effect
+// Header scroll
 window.addEventListener('scroll', () => {
   document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 40);
 });
@@ -1258,7 +1303,6 @@ function toggleMenu() {
   menu.classList.toggle('open');
   icon.className = menu.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
 }
-// Close menu on link click
 document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => {
   document.getElementById('mainMenu').classList.remove('open');
   document.getElementById('hamburgerIcon').className = 'fas fa-bars';
@@ -1270,28 +1314,48 @@ function showMoreReviews() {
   document.querySelector('.see-more-btn').style.display = 'none';
 }
 
+// Round trip rate count-up animation on scroll
+(function() {
+  const rateNums = document.querySelectorAll('.rt-rate-num');
+
+  function animateCount(el) {
+    if(el.dataset.animated) return;
+    el.dataset.animated = 'true';
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 900;
+    const start = Date.now();
+    el.classList.add('animate');
+
+    function tick() {
+      const elapsed = Date.now() - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) animateCount(entry.target);
+    });
+  }, { threshold: 0.4 });
+
+  rateNums.forEach(el => observer.observe(el));
+})();
+
 // Google review popup (once)
 setTimeout(() => {
-  if (!localStorage.getItem('reviewPopup')) {
-    if (confirm('Thank you for visiting Moksh Tours & Travel.\n\nWould you like to leave a Google Review?')) {
+  if(!localStorage.getItem('reviewPopup')) {
+    if(confirm('Thank you for visiting Moksh Tours & Travel.\n\nWould you like to leave a Google Review?')) {
       window.open('https://g.page/r/CTQaIJuvHQ3REBE/review', '_blank');
     }
     localStorage.setItem('reviewPopup', 'yes');
   }
 }, 90000);
 </script>
-
-<!-- Success Modal -->
-<div id="successModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; z-index:10000;">
-  <div style="background:#0f2348; border:2px solid #f5a623; border-radius:20px; padding:40px 30px; max-width:440px; text-align:center; margin:20px;">
-    <h2 style="color:#f5a623; margin-bottom:16px;">✅ Booking Received!</h2>
-    <p id="successMessage" style="color:#eef2f8; line-height:1.6; font-size:15.5px;"></p>
-    <button onclick="closeSuccessModal()" 
-            style="background:#f5a623; color:#1a0f00; padding:14px 40px; border:none; border-radius:50px; font-weight:700; font-size:16px; cursor:pointer; margin-top:20px;">
-      OK
-    </button>
-  </div>
-</div>
 
 </body>
 </html>
